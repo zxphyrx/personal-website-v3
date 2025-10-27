@@ -1,6 +1,7 @@
 html, body {
     margin: 0;
-    background-color: #0d0d13;
+    background-image: radial-gradient(circle at 50% 50%, #111122, #0d0d13);
+	background-attachment: fixed;
     height: 100vh;
     width: 100vw;
 }
@@ -23,7 +24,7 @@ body {
 	width: fit-content;
 	text-align: left;
 	margin: 0;
-	font-family: "Open Sans", serif;
+	font-family: "DM Sans", serif;
 	color: #e6e6e6;
 	font-size: 1.2rem;
 }
@@ -39,7 +40,7 @@ h1 {
 h2 {
     @include heading;
     font-weight: 500;
-    font-size: 2.5rem;
+    font-size: 2.75rem;
     letter-spacing: -0.01em;
 
 }
@@ -58,13 +59,6 @@ h4 {
     letter-spacing: 0.01em;
 }
 
-h4 {
-    @include heading;
-    font-weight: 500;
-    font-size: 1.5rem;
-    letter-spacing: 0.02em;
-}
-
 p, a {
 	@include body-text;
 	display: inline-block;
@@ -74,15 +68,27 @@ a {
 	cursor: pointer;
 }
 
+.mouse {
+	position: fixed;
+	height: 32px;
+	width: 32px;
+	border-radius: 100%;
+	background-color: #747474;
+	opacity: 30%;
+	z-index: 99;
+	pointer-events: none;
+	mix-blend-mode: lighten;
+}
+
 .section {
 	display: flex;
 	flex-direction: column;
-    width: 60vw;
+	justify-content: center;
+	height: 100vh;
+    width: 40vw;
 }
 
 .hero {
-	height: 100vh;
-	justify-content: center;
 	align-items: center;
 	
     h1 {
@@ -91,8 +97,16 @@ a {
 	}
 
 	.links {
+		width: fit-content;
+
 		a {
 			margin: 0 4px;
 		}
+	}
+}
+
+.aboutme {
+	h2 {
+		margin-bottom: 8px;
 	}
 }

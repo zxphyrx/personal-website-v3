@@ -1,11 +1,17 @@
 import "./style.scss";
+
 import { gsap } from "gsap";
-import { ScrollToPlugin } from "gsap/all";
+import { ScrollToPlugin, ScrollTrigger } from "gsap/all";
 
-gsap.registerPlugin(ScrollToPlugin);
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
+const mouse = document.querySelector(".mouse");
+
+const heroSection = document.querySelector(".hero.section");
 const heroLinks = document.querySelectorAll(".hero.section .links a");
 const heroLinksSlashes = document.querySelectorAll(".hero.section .links span");
+
+const aboutSection = document.querySelector(".aboutme.section");
 
 for(let [index, link] of heroLinks.entries()) {
     let leftSlash = heroLinksSlashes[index];
@@ -22,11 +28,24 @@ for(let [index, link] of heroLinks.entries()) {
             duration: 0.1
         })
     })
+
     link.addEventListener("mouseleave", () => {
-        gsap.to([leftSlash, rightSlash, link], {
+        gsap.to(link, {
             color: "#e6e6e6",
             margin: "0 4px",
             duration: 0.1
         })
+        gsap.to([leftSlash, rightSlash], {
+            color: "#e6e6e6",
+            duration: 0.1
+        })
     })
 }
+
+document.addEventListener("mousemove", (ev) => {
+    gsap.to(mouse, {
+        top:  ev.clientY - (mouse.clientHeight / 2),
+        left: ev.clientX - (mouse.clientWidth / 2),
+        duration: 0.3
+    })
+})
