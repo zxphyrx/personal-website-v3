@@ -70,14 +70,14 @@ a {
 
 .mouse {
 	position: fixed;
-	height: 32px;
-	width: 32px;
+	height: 24px;
+	width: 24px;
 	border-radius: 100%;
-	background-color: #747474;
-	opacity: 30%;
+	background-color: rgba(165, 162, 230, 0.1);
 	z-index: 99;
 	pointer-events: none;
-	mix-blend-mode: lighten;
+	backdrop-filter: blur(2px);
+	border: thin solid rgba(165, 162, 230, 0.4);
 }
 
 .section {

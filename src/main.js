@@ -42,10 +42,27 @@ for(let [index, link] of heroLinks.entries()) {
     })
 }
 
+document.body.addEventListener("mouseenter", (ev) => {
+    gsap.to(mouse, {
+        opacity: 1,
+        duration: 0.3,
+        ease: "power1.out"
+    })
+})
+
 document.addEventListener("mousemove", (ev) => {
     gsap.to(mouse, {
         top:  ev.clientY - (mouse.clientHeight / 2),
         left: ev.clientX - (mouse.clientWidth / 2),
-        duration: 0.3
+        duration: 0.3,
+        ease: "power1.out"
+    })
+})
+
+document.body.addEventListener("mouseleave", (ev) => {
+    gsap.to(mouse, {
+        opacity: 0,
+        duration: 0.3,
+        ease: "power1.out"
     })
 })
